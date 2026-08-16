@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-cream: #f3ebe3;
+  --color-warm-white: #faf6f1;
+  --color-charcoal: #1a1816;
+  --color-charcoal-soft: #221f1c;
+  --color-terracotta: #c48a5a;
+  --color-terracotta-deep: #b07848;
+
+  /* Semantic theme tokens (light default) */
+  --color-page: #f3ebe3;
+  --color-page-soft: #ebe3d9;
+  --color-surface: #fffdf9;
+  --color-fg: #1a1816;
+  --color-fg-soft: rgba(26, 24, 22, 0.72);
+  --color-muted: #6f675f;
+  --color-line: rgba(26, 24, 22, 0.1);
+  --color-track: rgba(26, 24, 22, 0.08);
+  --color-chip: rgba(26, 24, 22, 0.04);
+  --color-nav: #1a1816;
+  --color-nav-muted: rgba(26, 24, 22, 0.65);
+  --color-nav-bg: rgba(243, 235, 227, 0.55);
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+}
+
+/* Dark theme overrides via CSS variables */
+.dark {
+  --color-page: #1a1816;
+  --color-page-soft: #221f1c;
+  --color-surface: #2a2623;
+  --color-fg: #f3ebe3;
+  --color-fg-soft: rgba(243, 235, 227, 0.75);
+  --color-muted: #9a9188;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-track: rgba(255, 255, 255, 0.08);
+  --color-chip: rgba(255, 255, 255, 0.04);
+  --color-nav: #f3ebe3;
+  --color-nav-muted: rgba(243, 235, 227, 0.7);
+  --color-nav-bg: rgba(26, 24, 22, 0.55);
+  --color-terracotta: #d4a574;
+  --color-terracotta-deep: #c48a5a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-page);
+    color: var(--color-fg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-terracotta) 40%, transparent);
+  }
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+@keyframes skill-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.skill-bar-fill {
+  animation: skill-fill 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
